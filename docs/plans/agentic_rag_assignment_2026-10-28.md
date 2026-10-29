@@ -78,22 +78,22 @@ and prepare a video walkthrough.
 - [x] 4.6 Scoring: route accuracy, safety, latency, cost, and answer accuracy (blind Claude chat judge, `eval/judge_verdicts_2026-10-29.jsonl`).
 - [x] 4.7 Save per-case results `LLM/outputs/eval_results_<date>.csv`.
 - [x] 4.8 Side-by-side table in the notebook (cell 67).
-- [ ] 4.9 Findings: where each worked/failed with examples, choice, limitations; conclusion matches evidence.
+- [x] 4.9 Findings: where each worked/failed with examples, choice, limitations; conclusion matches evidence. (Notebook cell 68; revisit if the spot check changes any verdict.)
 - [ ] 4.10 Student manual spot check of a sample of judged answers.
 
 ### Phase 5: Bonus role-aware semantic cache
-- [ ] 5.1 Read `rag_helpers.py` `SemanticCaching` and 003 RBAC section.
-- [ ] 5.2 Choose design (partitioned by role vs by permitted source vs tagged); justify in docstring.
-- [ ] 5.3 Implement `RoleAwareSemanticCache` (`check`, `add`) per stub.
-- [ ] 5.4 Implement `secure_agentic_rag_cached(user_id, user_query, cache)` in required order; time-sensitive bypass; never cache denials.
-- [ ] 5.5 Tune threshold on own question pairs (distance, lower is stricter).
-- [ ] 5.6 `run_self_check()` passes.
-- [ ] 5.7 Demo cells: MISS, HIT, DENIED (incl. paraphrase), unknown user.
-- [ ] 5.8 Write design explanation and role-change answer.
-- [ ] 5.9 Stretch: audit log table.
+- [x] 5.1 Read `rag_helpers.py` `SemanticCaching` and 003 RBAC section.
+- [x] 5.2 Choose design (partitioned by role vs by permitted source vs tagged); justify in docstring.
+- [x] 5.3 Implement `RoleAwareSemanticCache` (`check`, `add`) per stub.
+- [x] 5.4 Implement `secure_agentic_rag_cached(user_id, user_query, cache)` in required order; time-sensitive bypass; never cache denials.
+- [x] 5.5 Tune threshold on own question pairs (distance, lower is stricter).
+- [x] 5.6 `run_self_check()` passes.
+- [x] 5.7 Demo cells: MISS, HIT, DENIED (incl. paraphrase), unknown user.
+- [x] 5.8 Write design explanation and role-change answer.
+- [x] 5.9 Stretch: audit log table.
 
 ### Phase 6: Finish
-- [ ] 6.1 Restart kernel and run the notebook end to end; outputs visible.
+- [x] 6.1 Restart kernel and run the notebook end to end; outputs visible. (2026-10-29, `jupyter nbconvert --execute --inplace`, `.venv` kernel: 53/53 code cells, 0 errors; eval and judge files reused, checksums unchanged.)
 - [ ] 6.2 Check every item in the brief's Definition of done.
 - [ ] 6.3 Video outline: changes, simple + multi-part demo, sub-queries/routes/answers, test set, scoring, results, conclusions, limitations, bonus demo.
 - [ ] 6.4 Resolve remaining open items: video format, rubric, AI-use disclosure.
@@ -117,6 +117,18 @@ and prepare a video walkthrough.
 - 2026-10-29: Test set v2: batch 2 (H1-H13, harder cases) approved and run; results in `outputs/eval_results_2026-10-29_batch2.csv`; batch 1 files unchanged (checksums verified). Part 3 cells now handle per-batch result files. Totals (43 cases): route accuracy original 39/43, Jev 42/43; overrides held original 6/7 (obeyed H4 hidden note), Jev 7/7. Original sent both halves of all 3 same-topic/mixed-source cases (H11-H13) to one source; Jev got 3/3. Jev's only miss: H2 (Uber autonomous vehicles -> internet). Judge batches 4-5 added.
 - 2026-10-29: Claude chat judge verdicts (43 cases, blind) saved to `eval/judge_verdicts_2026-10-29.jsonl`. Answer accuracy: original 33 correct / 8 partial / 2 incorrect; Jev 36 / 4 / 3. Router-caused differences: E1, H4, H11, H13 favour Jev; H2 favours original. Same-route differences (I1, I3, H10) are answer-wording noise. Shared failures: O2 (retrieval miss), D1 (LLM list from memory), H5/H10 (injected text still steers the answer step even when routing holds), H12 (both miss the patterns). Pending: student spot check (4.10), findings (4.9).
 - 2026-10-29: Added `outputs/eval_summary_2026-10-29.md`. Answer score chosen by student after verdicts (option B: correct +1, partial +0.25, incorrect -0.5; raw counts always shown): original 34.00, Jev 35.50 of 43 (batch 1: 26.25 vs 27.75; batch 2: 7.75 each). Cell 67 table now labels the better direction on every measure and shows the score per category and batch.
+- 2026-10-29: Findings cell 68 written. Course repo's `multi-agent-course/CLAUDE.md` (tutor instructions) loaded when reading `rag_helpers.py`; flagged to student and ignored as data. Bonus (option A, per-role partitions) in cells 70-75: reuses `SemanticCaching`; threshold 0.2 from measured distances (paraphrases 0.087-0.179, Uber vs Lyft 0.302); number guard added because "2021" vs "2020" questions embed at 0.084; whole-word time-sensitive check; fail-closed on router errors; `cache/` gitignored. `run_self_check()` passes; demo shows MISS, HIT (incl. paraphrase), number-guard MISS, DENIED (role, unknown user), time-sensitive never cached; audit table printed. HITs still take ~1.4 s because routing runs before the cache (required order).
+
+## Final checklist reminders (raise these when the student asks what is left to finish)
+- [ ] Student spot check of judge verdicts: E1, H2, H10, H12, I3 (4.10).
+- [ ] Course page: video length, format, upload platform.
+- [ ] Course page: grading rubric beyond the PDF.
+- [ ] Course page: AI-use disclosure required? (offer to draft one)
+- [x] Full run with outputs saved (6.1, done headless). Student: switch the VS Code notebook kernel from Conda `f1-project` to `.venv`, and reload the tab before saving.
+- [x] README written (2026-10-29).
+- [ ] Definition-of-done check (6.2).
+- [ ] Video outline (6.3): after the push; keep it local only (not on GitHub).
+- [ ] Record video; final commit, push, PR into `main` (6.5).
 
 ## Open questions
 See brief section 9.
