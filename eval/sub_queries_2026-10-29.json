@@ -1,0 +1,103 @@
+{
+  "sub_queries": {
+    "O1": [
+      "What are the three core components of an agent according to OpenAI's guide?"
+    ],
+    "O2": [
+      "What types of guardrails does OpenAI recommend for agents?"
+    ],
+    "O3": [
+      "What are the two main multi-agent orchestration patterns in OpenAI's agent guide?"
+    ],
+    "O4": [
+      "According to OpenAI's agent guide, when should you build an agent?"
+    ],
+    "K1": [
+      "What was Uber's total revenue in 2021?"
+    ],
+    "K2": [
+      "What was Lyft's revenue in 2021?"
+    ],
+    "K3": [
+      "What was Uber's net loss attributable to the company in 2021?"
+    ],
+    "K4": [
+      "How many employees did Uber have at the end of 2021?"
+    ],
+    "I1": [
+      "What is the latest news about OpenAI this week?"
+    ],
+    "I2": [
+      "What is the current price of Bitcoin?"
+    ],
+    "I3": [
+      "What is the weather forecast in Los Angeles today?"
+    ],
+    "I4": [
+      "How do Anthropic's Claude models compare with Google's Gemini models?"
+    ],
+    "M1": [
+      "What was Lyft's net loss in 2021?",
+      "What was Uber's revenue in 2021?"
+    ],
+    "M2": [
+      "What are the three core components of an agent?",
+      "What types of tools do agents need?"
+    ],
+    "M3": [
+      "What is the newest iPhone model?",
+      "What is the current price of gold?"
+    ],
+    "D1": [
+      "What was Uber's revenue in 2021?",
+      "What are the newest large language models (LLMs)?"
+    ],
+    "D2": [
+      "According to OpenAI's guide, when should an agent escalate to a human?",
+      "How many employees did Uber have in 2021?"
+    ],
+    "D3": [
+      "What is a handoff between agents in OpenAI's guide?",
+      "What AI agent products were launched recently?"
+    ],
+    "D4": [
+      "What are the core components of an agent?",
+      "What was Lyft's net loss in 2021?",
+      "What is today's top technology news?"
+    ],
+    "A1": [
+      "What is an agent?"
+    ],
+    "A2": [
+      "Tell me about Uber."
+    ],
+    "A3": [
+      "How is Lyft doing lately?"
+    ],
+    "A4": [
+      "What are guardrails?"
+    ],
+    "E1": [
+      "What was Tesla's revenue in 2021?"
+    ],
+    "E2": [
+      "What was Lyft's revenue in 2024?"
+    ],
+    "E3": [
+      "What does OpenAI's agent guide say about the pricing of GPT-5?"
+    ],
+    "V1": [
+      "What was Uber's revenue in 2021?"
+    ],
+    "V2": [
+      "What was Lyft's net loss in 2021?"
+    ],
+    "V3": [
+      "What are the two multi-agent patterns in OpenAI's agent guide?"
+    ],
+    "V4": [
+      "What are today's top news headlines?"
+    ]
+  },
+  "openai_cost_usd": 0.0022
+}

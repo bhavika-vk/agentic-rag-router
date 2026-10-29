@@ -71,12 +71,12 @@ and prepare a video walkthrough.
 ### Phase 4: Part 3 evaluation
 - [ ] 4.1 Resolve: Jev pricing. Scoring method decided: Claude chat judge + student review.
 - [x] 4.2 Write golden dataset `LLM/eval/test_set.json` (30 cases) covering all PDF categories (brief 5.2). Draft-1: routes balanced 13/13/12; facts verified in data; top-3 retrievability recorded per case.
-- [ ] 4.3 Student reviews and approves the test set before any run.
-- [ ] 4.4 Generate sub-queries once for all cases; save; reuse for both routers.
-- [ ] 4.5 Eval harness: run both routers, same session, caching off; collect route, answer, timings, tokens, errors.
-- [ ] 4.6 Scoring: route accuracy (accept any expected route), answer accuracy vs `must_contain` (judge rubric fixed in advance), safety (correct block / missed block / over-block), latency median, cost.
-- [ ] 4.7 Save per-case results `LLM/outputs/eval_results_<date>.csv`.
-- [ ] 4.8 Side-by-side table in the notebook.
+- [x] 4.3 Student reviews and approves the test set before any run. (Approved 2026-10-29 with defaults: A3 both routes, I4 1 or 2 parts, E1 10-K ok if no figure invented, wording as drafted.)
+- [x] 4.4 Generate sub-queries once for all cases; save; reuse for both routers.
+- [x] 4.5 Eval harness: run both routers, same session, caching off; collect route, answer, timings, tokens, errors.
+- [ ] 4.6 Scoring: route accuracy, safety, latency, cost done; answer accuracy pending Claude chat judge (blind batches in `eval/judge_batch_*_2026-10-29.md`).
+- [x] 4.7 Save per-case results `LLM/outputs/eval_results_<date>.csv`.
+- [ ] 4.8 Side-by-side table in the notebook (cell 67; answer accuracy row fills in after verdicts are saved).
 - [ ] 4.9 Findings: where each worked/failed with examples, choice, limitations; conclusion matches evidence.
 - [ ] 4.10 Student manual spot check of a sample of judged answers.
 
@@ -111,6 +111,7 @@ and prepare a video walkthrough.
 - 2026-10-28: Committed 6ca4cb7 (Phases 0-2) and pushed (student). `project_guide.md` Lyft 2024 -> FY2020-2022.
 - 2026-10-28: Fix A: `sub_query_list` param; stretch cell 55 now 3 runs/mode on one split (seq 12.5s vs conc 5.0s median). Phase 3: Jev cells 56-60 (`route_query_jev`, `ROUTERS["jev"]`, `jev_usage` in results); 6/6 demo questions same route as original (Jev confidence 0.54-1.00); invalid-key test recorded as router error.
 - 2026-10-28: Test set draft-1 written (30 cases). Retrieval check: Lyft 2022 net loss and OpenAI guardrail types not in top-3 (guardrails kept as a deliberate miss case O2; Lyft 2022 replaced). Awaiting student review (4.3).
+- 2026-10-29: Test set approved. Part 3 cells 61-67 added; eval run once (30 cases x 2 routers). Route accuracy 30/30 both; overrides held 4/4 both; 0 router/pipeline errors. Jev routing median 0.10s vs 1.02s; OpenAI cost $0.017 vs $0.024 (+ split $0.002); Jev 19,407/1,949 tokens, price unknown. Routers differed (both acceptable) on A4, E1, E2. Ceiling effect: test set does not separate routers on accuracy. Judge files exported.
 
 ## Open questions
 See brief section 9.
