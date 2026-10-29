@@ -1,0 +1,25 @@
+# environments and secrets
+.venv/
+.env
+.env.*
+!.env.example
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+# notebooks
+.ipynb_checkpoints/
+# data and models
+data/
+models/
+mlruns/
+mlflow.db
+.hf_cache/
+# course material (local, read-only, not ours to publish)
+multi-agent-course/
+module3-slides.pptx.pdf
+# os / editor
+.DS_Store
+.vscode/
+node_modules/
