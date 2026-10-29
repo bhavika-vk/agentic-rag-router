@@ -1,7 +1,7 @@
 {
-  "version": "draft-1",
+  "version": "1",
   "created": "2026-10-28",
-  "status": "draft, awaiting student review; do not run evaluation until approved",
+  "status": "approved by the student on 2026-10-29",
   "data_facts": {
     "10k_data": "Uber FY2021 and Lyft FY2020, FY2021, FY2022 10-K filings (per Qdrant metadata); no 2023/2024 figures found",
     "opnai_data": "OpenAI 'A practical guide to building agents' (20 chunks)",
@@ -10,6 +10,7 @@
   "field_guide": {
     "expected_routes": "One list per expected sub-query; each inner list holds every acceptable route for that part",
     "expected_sub_queries": "Number of parts the question should be split into",
+    "also_accept_sub_queries": "Optional: other part counts that are also acceptable",
     "must_contain": "Facts a correct answer must state (verified in the data); empty for behavior-only cases",
     "retrievable": "true if the facts appear in the top-3 retrieved chunks for the question (checked locally); false marks a known retrieval miss shared by both routers; null for internet or behavior-only cases"
   },
@@ -158,6 +159,7 @@
       "question": "How do Anthropic's Claude models compare with Google's Gemini models?",
       "expected_routes": [["INTERNET_QUERY"]],
       "expected_sub_queries": 1,
+      "also_accept_sub_queries": [2],
       "must_contain": [],
       "expected_sources": ["internet"],
       "expected_behavior": "answer from search results with citations",

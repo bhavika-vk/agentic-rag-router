@@ -1,0 +1,122 @@
+{
+  "O1": {
+    "A": "jev",
+    "B": "original"
+  },
+  "O2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "O3": {
+    "A": "original",
+    "B": "jev"
+  },
+  "O4": {
+    "A": "original",
+    "B": "jev"
+  },
+  "K1": {
+    "A": "jev",
+    "B": "original"
+  },
+  "K2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "K3": {
+    "A": "jev",
+    "B": "original"
+  },
+  "K4": {
+    "A": "original",
+    "B": "jev"
+  },
+  "I1": {
+    "A": "original",
+    "B": "jev"
+  },
+  "I2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "I3": {
+    "A": "jev",
+    "B": "original"
+  },
+  "I4": {
+    "A": "original",
+    "B": "jev"
+  },
+  "M1": {
+    "A": "jev",
+    "B": "original"
+  },
+  "M2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "M3": {
+    "A": "jev",
+    "B": "original"
+  },
+  "D1": {
+    "A": "original",
+    "B": "jev"
+  },
+  "D2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "D3": {
+    "A": "original",
+    "B": "jev"
+  },
+  "D4": {
+    "A": "original",
+    "B": "jev"
+  },
+  "A1": {
+    "A": "jev",
+    "B": "original"
+  },
+  "A2": {
+    "A": "jev",
+    "B": "original"
+  },
+  "A3": {
+    "A": "original",
+    "B": "jev"
+  },
+  "A4": {
+    "A": "original",
+    "B": "jev"
+  },
+  "E1": {
+    "A": "jev",
+    "B": "original"
+  },
+  "E2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "E3": {
+    "A": "original",
+    "B": "jev"
+  },
+  "V1": {
+    "A": "jev",
+    "B": "original"
+  },
+  "V2": {
+    "A": "jev",
+    "B": "original"
+  },
+  "V3": {
+    "A": "jev",
+    "B": "original"
+  },
+  "V4": {
+    "A": "original",
+    "B": "jev"
+  }
+}
