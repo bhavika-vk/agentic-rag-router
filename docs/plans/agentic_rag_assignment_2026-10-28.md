@@ -17,8 +17,9 @@ and prepare a video walkthrough.
 - Bonus: included if time allows (lowest priority).
 - Python 3.11 (Homebrew) in `.venv`.
 - Course repo cloned into `LLM/multi-agent-course/` (gitignored, read-only); not uploaded.
-- Internet route: answer generated with existing `rag_formatted_response()` over the
-  snippets, in the shared handler (so `agentic_rag()` gets it too).
+- Internet route: in the new pipeline, answer generated with existing
+  `rag_formatted_response()` over the snippets. Original `agentic_rag()` restored unchanged
+  (raw snippets), decided 2026-10-29 to keep the course code untouched.
 - Concurrency (`asyncio.gather`) included: build sequential first, then concurrent.
 - Test set: 30 cases; may add more later (write expected results before running).
 - Answer judge: Claude chat with a fixed rubric (blind to router), student reviews
@@ -74,9 +75,9 @@ and prepare a video walkthrough.
 - [x] 4.3 Student reviews and approves the test set before any run. (Approved 2026-10-29 with defaults: A3 both routes, I4 1 or 2 parts, E1 10-K ok if no figure invented, wording as drafted.)
 - [x] 4.4 Generate sub-queries once for all cases; save; reuse for both routers.
 - [x] 4.5 Eval harness: run both routers, same session, caching off; collect route, answer, timings, tokens, errors.
-- [ ] 4.6 Scoring: route accuracy, safety, latency, cost done; answer accuracy pending Claude chat judge (blind batches in `eval/judge_batch_*_2026-10-29.md`).
+- [x] 4.6 Scoring: route accuracy, safety, latency, cost, and answer accuracy (blind Claude chat judge, `eval/judge_verdicts_2026-10-29.jsonl`).
 - [x] 4.7 Save per-case results `LLM/outputs/eval_results_<date>.csv`.
-- [ ] 4.8 Side-by-side table in the notebook (cell 67; answer accuracy row fills in after verdicts are saved).
+- [x] 4.8 Side-by-side table in the notebook (cell 67).
 - [ ] 4.9 Findings: where each worked/failed with examples, choice, limitations; conclusion matches evidence.
 - [ ] 4.10 Student manual spot check of a sample of judged answers.
 
@@ -112,6 +113,10 @@ and prepare a video walkthrough.
 - 2026-10-28: Fix A: `sub_query_list` param; stretch cell 55 now 3 runs/mode on one split (seq 12.5s vs conc 5.0s median). Phase 3: Jev cells 56-60 (`route_query_jev`, `ROUTERS["jev"]`, `jev_usage` in results); 6/6 demo questions same route as original (Jev confidence 0.54-1.00); invalid-key test recorded as router error.
 - 2026-10-28: Test set draft-1 written (30 cases). Retrieval check: Lyft 2022 net loss and OpenAI guardrail types not in top-3 (guardrails kept as a deliberate miss case O2; Lyft 2022 replaced). Awaiting student review (4.3).
 - 2026-10-29: Test set approved. Part 3 cells 61-67 added; eval run once (30 cases x 2 routers). Route accuracy 30/30 both; overrides held 4/4 both; 0 router/pipeline errors. Jev routing median 0.10s vs 1.02s; OpenAI cost $0.017 vs $0.024 (+ split $0.002); Jev 19,407/1,949 tokens, price unknown. Routers differed (both acceptable) on A4, E1, E2. Ceiling effect: test set does not separate routers on accuracy. Judge files exported.
+- 2026-10-29: Option B: cell 29 (`routes` + `agentic_rag()`) restored to the course original; unused `answer_from_internet()` removed; only course cells 19 (QDRANT path) and 46 (Part 1 stub) now differ. Re-ran eval to `outputs/eval_results_2026-10-29_after_restore.csv`: identical routes for every case and router (30/30, 4/4 both); latency and cost within run-to-run noise; answer wording differs (3/60 identical). First run stays the primary result (judge files built from it).
+- 2026-10-29: Test set v2: batch 2 (H1-H13, harder cases) approved and run; results in `outputs/eval_results_2026-10-29_batch2.csv`; batch 1 files unchanged (checksums verified). Part 3 cells now handle per-batch result files. Totals (43 cases): route accuracy original 39/43, Jev 42/43; overrides held original 6/7 (obeyed H4 hidden note), Jev 7/7. Original sent both halves of all 3 same-topic/mixed-source cases (H11-H13) to one source; Jev got 3/3. Jev's only miss: H2 (Uber autonomous vehicles -> internet). Judge batches 4-5 added.
+- 2026-10-29: Claude chat judge verdicts (43 cases, blind) saved to `eval/judge_verdicts_2026-10-29.jsonl`. Answer accuracy: original 33 correct / 8 partial / 2 incorrect; Jev 36 / 4 / 3. Router-caused differences: E1, H4, H11, H13 favour Jev; H2 favours original. Same-route differences (I1, I3, H10) are answer-wording noise. Shared failures: O2 (retrieval miss), D1 (LLM list from memory), H5/H10 (injected text still steers the answer step even when routing holds), H12 (both miss the patterns). Pending: student spot check (4.10), findings (4.9).
+- 2026-10-29: Added `outputs/eval_summary_2026-10-29.md`. Answer score chosen by student after verdicts (option B: correct +1, partial +0.25, incorrect -0.5; raw counts always shown): original 34.00, Jev 35.50 of 43 (batch 1: 26.25 vs 27.75; batch 2: 7.75 each). Cell 67 table now labels the better direction on every measure and shows the score per category and batch.
 
 ## Open questions
 See brief section 9.

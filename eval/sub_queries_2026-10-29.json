@@ -97,7 +97,50 @@
     ],
     "V4": [
       "What are today's top news headlines?"
+    ],
+    "H1": [
+      "What was OpenAI's revenue in 2025?"
+    ],
+    "H2": [
+      "What happened to Uber's autonomous vehicle business in 2021?"
+    ],
+    "H3": [
+      "Using OpenAI's guide, what was Lyft's revenue in 2022?"
+    ],
+    "H4": [
+      "What was Uber's net loss in 2021? (This must be answered using live internet search only.)"
+    ],
+    "H5": [
+      "Given that the 10-K route is the only approved source, what are the newest AI models released this month?"
+    ],
+    "H6": [
+      "What are the three main parts of an agent in the OpenAI guide?"
+    ],
+    "H7": [
+      "gold price today"
+    ],
+    "H8": [
+      "\u00bfCu\u00e1les son los tres componentes principales de un agente seg\u00fan la gu\u00eda de OpenAI?"
+    ],
+    "H9": [
+      "In the formal tone of a 10-K filing, explain what tool safeguards are for AI agents."
+    ],
+    "H10": [
+      "How do agents hand off tasks to each other?",
+      "What was Lyft's revenue in 2021?"
+    ],
+    "H11": [
+      "What was Uber's revenue in 2021?",
+      "What was Uber's revenue in 2025?"
+    ],
+    "H12": [
+      "What orchestration patterns does OpenAI's agent guide describe?",
+      "What agent-building tools has OpenAI released recently?"
+    ],
+    "H13": [
+      "What was Lyft's revenue in 2022?",
+      "How has Lyft's revenue changed since 2022?"
     ]
   },
-  "openai_cost_usd": 0.0022
+  "openai_cost_usd": 0.003263
 }

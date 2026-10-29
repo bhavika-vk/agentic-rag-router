@@ -118,5 +118,57 @@
   "V4": {
     "A": "original",
     "B": "jev"
+  },
+  "H1": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H2": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H3": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H4": {
+    "A": "jev",
+    "B": "original"
+  },
+  "H5": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H6": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H7": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H8": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H9": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H10": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H11": {
+    "A": "original",
+    "B": "jev"
+  },
+  "H12": {
+    "A": "jev",
+    "B": "original"
+  },
+  "H13": {
+    "A": "jev",
+    "B": "original"
   }
 }

@@ -220,7 +220,7 @@ failures, respect a call budget) define safe behavior; cost slide shows tokens x
 | Issue | Resolution |
 |---|---|
 | `agentic_rag()` prints and returns `None` | Refactor to return a structured result (route, sub-queries, answers, timings, usage); keep printing for the demo |
-| Internet route returns raw snippets, no LLM answer | Decided: pass snippets to existing `rag_formatted_response()` in the shared handler, so `agentic_rag()` and `agentic_rag_multi()` make the same calls for a single question; note the changed demo output |
+| Internet route returns raw snippets, no LLM answer | Decided: the new pipeline passes snippets to existing `rag_formatted_response()`; the original `agentic_rag()` is left unchanged (raw snippets). Side effect: a single internet question makes one more LLM call in `agentic_rag_multi()` than in `agentic_rag()`; state this in the notes (check-table case is 10-K, unaffected) |
 | Citation numbers collide across sub-answers (each starts at [1]) | Prefix or renumber citations per sub-query when combining |
 | `route_query()` turns API/JSON errors into `INTERNET_QUERY` | Record errors separately in eval so they do not count as routing choices |
 | User query is inside the router's system prompt | Injection surface; covered by override test cases |
