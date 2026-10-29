@@ -70,7 +70,7 @@ and prepare a video walkthrough.
 
 ### Phase 4: Part 3 evaluation
 - [ ] 4.1 Resolve: Jev pricing. Scoring method decided: Claude chat judge + student review.
-- [ ] 4.2 Write golden dataset `LLM/eval/test_set.json` (30 cases) covering all PDF categories (brief 5.2).
+- [x] 4.2 Write golden dataset `LLM/eval/test_set.json` (30 cases) covering all PDF categories (brief 5.2). Draft-1: routes balanced 13/13/12; facts verified in data; top-3 retrievability recorded per case.
 - [ ] 4.3 Student reviews and approves the test set before any run.
 - [ ] 4.4 Generate sub-queries once for all cases; save; reuse for both routers.
 - [ ] 4.5 Eval harness: run both routers, same session, caching off; collect route, answer, timings, tokens, errors.
@@ -110,6 +110,7 @@ and prepare a video walkthrough.
 - 2026-10-28: Timing variability test (harness only, split fixed, 3 runs/mode): 2-part seq 9.4s vs conc 6.1s median parts time; 3-part 12.5s vs 5.1s. Same-mode spread 8-30%; mode gap 35-59%. Brief data facts corrected (Lyft FY2020-2022) and findings added to Known issues.
 - 2026-10-28: Committed 6ca4cb7 (Phases 0-2) and pushed (student). `project_guide.md` Lyft 2024 -> FY2020-2022.
 - 2026-10-28: Fix A: `sub_query_list` param; stretch cell 55 now 3 runs/mode on one split (seq 12.5s vs conc 5.0s median). Phase 3: Jev cells 56-60 (`route_query_jev`, `ROUTERS["jev"]`, `jev_usage` in results); 6/6 demo questions same route as original (Jev confidence 0.54-1.00); invalid-key test recorded as router error.
+- 2026-10-28: Test set draft-1 written (30 cases). Retrieval check: Lyft 2022 net loss and OpenAI guardrail types not in top-3 (guardrails kept as a deliberate miss case O2; Lyft 2022 replaced). Awaiting student review (4.3).
 
 ## Open questions
 See brief section 9.
