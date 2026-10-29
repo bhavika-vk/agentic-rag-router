@@ -23,3 +23,5 @@ module3-slides.pptx.pdf
 .DS_Store
 .vscode/
 node_modules/
+# semantic cache files (bonus)
+cache/
